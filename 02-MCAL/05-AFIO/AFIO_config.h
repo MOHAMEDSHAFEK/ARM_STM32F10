@@ -10,6 +10,6 @@
 #define AFIO_config_H_
 
 
-#define AFIO_LINE0    LINE0
+#define AFIO_LINE    LINE0
 
 #endif /* AFIO_config_H_ */

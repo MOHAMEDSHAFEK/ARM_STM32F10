@@ -12,20 +12,19 @@
 
 
 typedef struct {
-	u32 IMR;
-	u32 EMR;
-	u32 RTSR;
-	u32 FTSR;
-	u32 SWIER;
-	u32 PR;
-	
-	
+	volatile   u32 IMR;
+	volatile   u32 EMR;
+	volatile   u32 RTSR;
+	volatile   u32 FTSR;
+	volatile   u32 SWIER;
+	volatile   u32 PR;
+
 }EXTI_t;
 
 
 #define EXTI ((volatile EXTI_t *)0x40010400)
 		
-		
+/*number of line*/		
 #define EXTI_LINE0    0
 #define EXTI_LINE1    1
 #define EXTI_LINE2    2
@@ -42,9 +41,9 @@ typedef struct {
 #define EXTI_LINE13   13
 #define EXTI_LINE14   14
 #define EXTI_LINE15   15
-
-#defone RISING         0
-#defone FALLING        1
-#defone ON_CHANGE      2
+/* sense mode */
+#define RISING        			 0
+#define FALLING      		  1
+#define ON_CHANGE      2
 
 #endif /* EXTI_private_H_ */

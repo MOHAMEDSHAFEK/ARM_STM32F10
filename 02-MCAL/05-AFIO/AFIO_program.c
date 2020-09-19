@@ -16,7 +16,7 @@
 #include "AFIO_private.h"
 
 
-void MAFIO_voidSetEXTIConfiguration(u8 copy_u8Line, u8 copy_u8PortMap);
+void MAFIO_voidSetEXTIConfiguration(u8 copy_u8Line, u8 copy_u8PortMap)
 {
 	u8 Local_u8RegIndex=0;
 	if(copy_u8Line<=3)
@@ -40,6 +40,5 @@ void MAFIO_voidSetEXTIConfiguration(u8 copy_u8Line, u8 copy_u8PortMap);
 	}
 		
 	AFIO->EXTICR[Local_u8RegIndex] &= ~(0b1111) << (copy_u8Line*4);
-	AFIO->EXTICR[Local_u8RegIndex] |= (copy_u8PortMap) << (copy_u8Line*4)
-	
+	AFIO->EXTICR[Local_u8RegIndex] |= (copy_u8PortMap) << (copy_u8Line*4);
 }

@@ -1,13 +1,10 @@
-/*
- * DIO_config.h
- *
- *  Created on: August 12, 2020
- *      Author: Mohamed shafek
- *     Version: V01
- */
+/********************************************************************/
+/* Author	: MOHAMED SHAFEK								 	 	*/
+/* Date		: 12 Aug 2020                                           */
+/* Version	: V01                                                	*/
+/********************************************************************/
 
-#ifndef DIO_config_H_
-#define DIO_config_H_
+#ifndef DIO_CONFIG_H
+#define DIO_CONFIG_H
 
-
-#endif /* DIO_config_H_ */
+#endif
