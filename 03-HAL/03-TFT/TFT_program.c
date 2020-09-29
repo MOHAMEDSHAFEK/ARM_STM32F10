@@ -4,6 +4,9 @@
  *  Created on: September 21, 2020
  *      Author: Mohamed shafek
  *     Version: V01
+ * add two function
+ *   Add on: September 26, 2020
+ *		Version: V02
  */
  
 #include "STD_TYPES.h"
@@ -93,4 +96,59 @@ static void voidWriteData(u8 copy_u8Data)
 	MGPIO_voidSetPinValue(TFT_A0_PIN,HIGH);
 		/*send over over SPI*/
 	MSPI1_voidSendReceiveSynch(copy_u8Data,&Local_u8Temp);
+}
+
+void HTFT_voidFillColor(u16 copy_u16Color)
+{
+	u16 counter;
+		/* set X address */
+	voidWriteCommand(0x2A);
+	voidWriteData(0);
+	voidWriteData(0);     //set first  X positio
+	voidWriteData(0);
+	voidWriteData(127);  //set end  X positio
+		/* set Y address */
+	voidWriteCommand(0x2B);
+	voidWriteData(0);
+	voidWriteData(0);     //set first  Y positio
+	voidWriteData(0);
+	voidWriteData(159);  //set end  Y positio
+		/* command RAM write */
+	voidWriteCommand(0x2C);
+	//voidWriteData(0xffff);    //first pixail black
+	for(counter=0;counter<20480;counter++)
+	{
+		/* Write the high byte*/
+		voidWriteData(copy_u16Color>>8);
+		/* Write the low  byte*/
+		voidWriteData(copy_u16Color&0x00ff);
+	}
+}
+
+void HTFT_voidDrawRect(u8 x1,u8 x2, u8 y1, u8 y2, u16 copy_u16Color)
+{
+	u16 Local_u16Size= (x2-x1)*(y2-y1);
+	u16 counter;
+		/* set X address */
+	voidWriteCommand(0x2A);
+	voidWriteData(0);
+	voidWriteData(x1);     //set first  X positio
+	voidWriteData(0);
+	voidWriteData(x2);     //set end  X positio
+		/* set Y address */
+	voidWriteCommand(0x2B);
+	voidWriteData(0);
+	voidWriteData(y1);     //set first  Y positio
+	voidWriteData(0);
+	voidWriteData(y2);     //set end  Y positio
+		/* command RAM write */
+	voidWriteCommand(0x2C);
+	//voidWriteData(0xffff);    //first pixail black
+	for(counter=0;counter<Local_u16Size;counter++)
+	{
+		/* Write the high byte*/
+		voidWriteData(copy_u16Color>>8);
+		/* Write the low  byte*/
+		voidWriteData(copy_u16Color&0x00ff);
+	}
 }
