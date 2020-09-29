@@ -6,7 +6,7 @@ This is a sample web site for test esp wifi module
 * the turen on press give me 0 in status 
 * the turen off press give me 1 in status 
 
-* HTML code *
+* *HTML code*
 ```
 <html>
 <head>
@@ -28,7 +28,7 @@ This is a sample web site for test esp wifi module
 
 </html>
 ```
-* PHP code *
+* *PHP code*
 ```
 <?php
 
@@ -55,5 +55,5 @@ if(isset ($_GET['status']) )
 
 ?>
 ```
-* my web site *
+* *my web site*
 [title](http://mshafek.freevar.com/)
